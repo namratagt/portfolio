@@ -84,13 +84,16 @@ function App() {
 
       {/* TOP NAVBAR */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 
+           opacity-80 backdrop-blur-md backdrop-blur-md ${isDark ? " bg-black/20" : " bg-white/20"} text-white
+
+           ${
           isScrolled
             ? isDark
               ? "bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-white/[0.04]"
               : "bg-[#f5f4f0]/90 backdrop-blur-xl border-b border-black/[0.08]"
             : "bg-transparent"
-        }`}
+        }` }
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -253,7 +256,7 @@ function App() {
                     href={socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-400 hover:text-amber-500 transition-colors text-sm"
+                    className={`transition-colors text-sm ${isDark ? "text-white" : "text-black"} hover:text-amber-500"`}
                   >
                     LinkedIn
                   </a>
@@ -261,13 +264,13 @@ function App() {
                     href={socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-400 hover:text-amber-500 transition-colors text-sm"
+                    className={`transition-colors text-sm ${isDark ? "text-white" : "text-black"} hover:text-amber-500`}
                   >
                     GitHub
                   </a>
                   <a
                     href="mailto:namrata1677@gmail.com"
-                    className="text-neutral-400 hover:text-amber-500 transition-colors text-sm"
+                    className={`transition-colors text-sm ${isDark ? "text-white" : "text-black"} hover:text-amber-500`}
                   >
                     Email
                   </a>
@@ -276,7 +279,7 @@ function App() {
                 <a
                   href="/Namrata_Gupta_Resume.pdf"
                   download="Namrata_Gupta_Resume.pdf"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[13px] font-medium text-amber-500 border border-amber-500/30 rounded-lg hover:bg-amber-500/10 transition-all"
+                  className={`inline-flex items-center gap-2 px-4 py-2 text-[13px] font-medium border rounded-lg transition-all ${isDark ? "text-amber-500 border-amber-500/30 hover:bg-amber-500/10" : "text-amber-600 border-amber-600/30 hover:bg-amber-600/10"}`}
                 >
                   <svg
                     className="w-4 h-4"
@@ -295,9 +298,9 @@ function App() {
                 </a>
               </div>
 
-              <p className="text-neutral-600 text-xs mt-10">
+              {/* <p className={`text-xs mt-10 ${isDark ? "text-neutral-600" : "text-[#0a0a0f]"}`}>
                 © 2026 Namrata Gupta
-              </p>
+              </p> */}
             </motion.aside>
 
             {/* RIGHT - All scrollable content */}
@@ -396,12 +399,12 @@ function App() {
               </section>
 
               {/* All other sections flow here in the right column */}
-              <Experience />
-              <Skills />
-              <Projects />
+              <Experience isDark={isDark} />
+              <Skills isDark={isDark} />
+              <Projects isDark={isDark} />
               {/* <Certifications /> */}
-              <Achievements />
-              <Contact />
+              <Achievements isDark={isDark} />
+              <Contact isDark={isDark} />
             </div>
           </div>
         </div>

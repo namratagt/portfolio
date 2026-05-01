@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { skillCategories, stats } from "../utils/utils";
 
-const Skills = () => {
+const Skills = ({ isDark }: { isDark: boolean }) => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,7 +23,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-[#0a0a0f] py-20 border-t border-white/[0.04]"
+      className={`py-20 border-t ${isDark ? "bg-[#0a0a0f] border-white/[0.04]" : "bg-[#f5f4f0] border-black/[0.08]"}`}
       aria-labelledby="skills-heading"
     >
       <div>
@@ -38,13 +38,13 @@ const Skills = () => {
           <p className="text-[11px] text-amber-500/80 uppercase tracking-wider mb-3">Expertise</p>
           <h2
             id="skills-heading"
-            className="text-3xl sm:text-4xl font-[family-name:var(--font-heading)] font-semibold text-white mb-4"
+            className={`text-3xl sm:text-4xl font-[family-name:var(--font-heading)] font-semibold mb-4 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}
           >
             Technical Skills
           </h2>
-          <p className="text-neutral-400 max-w-xl">
+          {/* <p className={`max-w-xl ${isDark ? "text-neutral-400" : "text-neutral-600"}`}>
             Comprehensive expertise across the full development stack with a focus on scalable, performant solutions.
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Skills Grid */}
@@ -61,15 +61,15 @@ const Skills = () => {
             <motion.article
               key={index}
               variants={itemVariants}
-              className="p-6 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/[0.08] transition-colors duration-300"
+              className={`p-6 rounded-xl border transition-colors duration-300 ${isDark ? "bg-white/[0.02] border-white/[0.05] hover:border-white/[0.08]" : "bg-black/[0.02] border-black/[0.05] hover:border-black/[0.08]"}`}
               role="listitem"
             >
-              <h3 className="text-white font-medium mb-4">{category.category}</h3>
+              <h3 className={`font-medium mb-4 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}>{category.category}</h3>
               <div className="flex flex-wrap gap-2" role="list" aria-label={`${category.category} skills`}>
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="px-3 py-1.5 text-[13px] text-neutral-300 bg-white/[0.03] border border-white/[0.05] rounded-md"
+                    className={`px-3 py-1.5 text-[13px] rounded-md ${isDark ? "text-neutral-300 bg-white/[0.03] border-white/[0.05]" : "text-neutral-700 bg-black/[0.03] border-black/[0.05]"}`}
                     role="listitem"
                   >
                     {skill}
@@ -93,13 +93,13 @@ const Skills = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl bg-white/[0.02] border border-white/[0.05] text-center"
+              className={`p-6 rounded-xl text-center ${isDark ? "bg-white/[0.02] border-white/[0.05]" : "bg-black/[0.02] border-black/[0.05]"}`}
               role="listitem"
             >
-              <p className="text-3xl font-[family-name:var(--font-heading)] font-semibold text-white mb-2">
+              <p className={`text-3xl font-[family-name:var(--font-heading)] font-semibold mb-2 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}>
                 {stat.value}
               </p>
-              <p className="text-neutral-400 text-sm">{stat.label}</p>
+              <p className={`text-sm ${isDark ? "text-neutral-400" : "text-neutral-600"}`}>{stat.label}</p>
             </div>
           ))}
         </motion.div>

@@ -12,7 +12,7 @@ type ExperienceType = {
   highlights: string[];
 };
 
-const Experience = () => {
+const Experience = ({ isDark }: { isDark: boolean }) => {
   const [selectedExp, setSelectedExp] = useState<ExperienceType | null>(null);
 
   const containerVariants = {
@@ -35,7 +35,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="bg-[#0a0a0f] py-20 border-t border-white/[0.04]"
+      className={`py-20 border-t ${isDark ? "bg-[#0a0a0f] border-white/[0.04]" : "bg-[#f5f4f0] border-black/[0.08]"}`}
       aria-labelledby="experience-heading"
     >
       <div>
@@ -107,7 +107,7 @@ const Experience = () => {
 
               <button
                 onClick={() => setSelectedExp(exp)}
-                className="text-amber-500 text-sm hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                className={`text-amber-500 text-sm ${isDark ? "hover:text-white" : "hover:text-black"} transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded cursor-pointer`}
               >
                 Learn More →
               </button>
@@ -154,7 +154,7 @@ const Experience = () => {
             aria-modal="true"
           >
             <motion.div
-              className="bg-[#111] border border-white/[0.08] rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+              className={`${isDark ? "bg-[#111] border-white/[0.08]" : "bg-white border-black/[0.08]"} border rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto`}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -163,14 +163,14 @@ const Experience = () => {
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-[family-name:var(--font-heading)] font-semibold text-white mb-1">
+                    <h3 className={`text-2xl font-[family-name:var(--font-heading)] font-semibold mb-1 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}>
                       {selectedExp.role}
                     </h3>
                     <p className="text-amber-500/80">{selectedExp.company} · {selectedExp.period}</p>
                   </div>
                   <button
                     onClick={() => setSelectedExp(null)}
-                    className="text-neutral-400 hover:text-white transition-colors p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className={`p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 transition-colors ${isDark ? "text-neutral-400 hover:text-white" : "text-neutral-600 hover:text-[#0a0a0f]"}`}
                     aria-label="Close dialog"
                     autoFocus
                   >
@@ -187,7 +187,7 @@ const Experience = () => {
                     {selectedExp.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500/60 mt-2 shrink-0" />
-                        <span className="text-neutral-300 text-[15px] leading-relaxed">{highlight}</span>
+                        <span className={`text-[15px] leading-relaxed ${isDark ? "text-neutral-300" : "text-neutral-700"}`}>{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -198,7 +198,7 @@ const Experience = () => {
                   <p className="text-[11px] text-amber-500/80 uppercase tracking-wider mb-4">Technologies</p>
                   <div className="flex flex-wrap gap-2">
                     {selectedExp.tech.map((tech, idx) => (
-                      <span key={idx} className="px-3 py-1.5 text-sm text-neutral-300 bg-white/[0.05] border border-white/[0.08] rounded-md">
+                      <span key={idx} className={`px-3 py-1.5 text-sm rounded-md ${isDark ? "text-neutral-300 bg-white/[0.05] border-white/[0.08]" : "text-neutral-700 bg-black/[0.05] border-black/[0.08]"}`}>
                         {tech}
                       </span>
                     ))}

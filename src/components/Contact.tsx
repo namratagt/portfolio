@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { contactLinks } from "../utils/utils";
 
-const Contact = () => {
+const Contact = ({ isDark }: { isDark: boolean }) => {
 
   return (
     <section
       id="contact"
-      className="bg-[#0a0a0f] py-20 border-t border-white/[0.04]"
+      className={`py-20 border-t ${isDark ? "bg-[#0a0a0f] border-white/[0.04]" : "bg-[#f5f4f0] border-black/[0.08]"}`}
       aria-labelledby="contact-heading"
     >
       <div>
@@ -21,11 +21,11 @@ const Contact = () => {
           <p className="text-[11px] text-amber-500/80 uppercase tracking-wider mb-3">Contact</p>
           <h2
             id="contact-heading"
-            className="text-3xl sm:text-4xl font-[family-name:var(--font-heading)] font-semibold text-white mb-4"
+            className={`text-3xl sm:text-4xl font-[family-name:var(--font-heading)] font-semibold mb-4 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}
           >
             Get In Touch
           </h2>
-          <p className="text-neutral-400 max-w-xl">
+          <p className={`max-w-xl ${isDark ? "text-neutral-400" : "text-neutral-600"}`}>
             Let's discuss how we can work together to build something great.
           </p>
         </motion.div>
@@ -39,8 +39,8 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="mb-10">
-              <h3 className="text-lg font-medium text-white mb-4">Contact Information</h3>
-              <p className="text-neutral-400 leading-relaxed">
+              <h3 className={`text-lg font-medium mb-4 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}>Contact Information</h3>
+              <p className={`leading-relaxed ${isDark ? "text-neutral-400" : "text-neutral-600"}`}>
                 I'm currently working as a Specialist Programmer at Infosys and always open to
                 discussing new opportunities, collaborations, or innovative ideas.
               </p>
@@ -53,10 +53,10 @@ const Contact = () => {
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex items-center justify-between p-4 rounded-lg bg-white/[0.02] border border-white/[0.05] hover:border-amber-500/30 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  className={`flex items-center justify-between p-4 rounded-lg border transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${isDark ? "bg-white/[0.02] border-white/[0.05] hover:border-amber-500/30" : "bg-black/[0.02] border-black/[0.05] hover:border-amber-500/30"}`}
                 >
-                  <span className="text-neutral-500 text-sm">{link.label}</span>
-                  <span className="text-neutral-300 text-sm group-hover:text-amber-500 transition-colors">
+                  <span className={`text-sm ${isDark ? "text-neutral-500" : "text-[#0a0a0f]"}`}>{link.label}</span>
+                  <span className={`text-sm group-hover:text-amber-500 transition-colors ${isDark ? "text-neutral-300" : "text-neutral-700"}`}>
                     {link.value}
                   </span>
                 </a>

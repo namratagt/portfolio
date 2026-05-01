@@ -41,9 +41,9 @@ const Achievements = () => {
           >
             Achievements
           </h2>
-          <p className="text-neutral-400 max-w-xl">
+          {/* <p className="text-neutral-400 max-w-xl">
             Milestones and recognitions showcasing excellence and continuous growth.
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Achievements Grid */}

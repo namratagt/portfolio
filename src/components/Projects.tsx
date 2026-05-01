@@ -11,7 +11,7 @@ type ProjectType = {
   metrics: { label: string; value: string; }[];
 };
 
-const Projects = () => {
+const Projects = ({ isDark }: { isDark: boolean }) => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
 
   const containerVariants = {
@@ -34,7 +34,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="bg-[#0a0a0f] py-20 border-t border-white/[0.04]"
+      className={`py-20 border-t ${isDark ? "bg-[#0a0a0f] border-white/[0.04]" : "bg-[#f5f4f0] border-black/[0.08]"}`}
       aria-labelledby="projects-heading"
     >
       <div>
@@ -53,9 +53,9 @@ const Projects = () => {
           >
             Featured Projects
           </h2>
-          <p className="text-neutral-400 max-w-xl">
-            Scalable solutions built with modern technologies, delivering measurable impact.
-          </p>
+            {/* <p className="text-neutral-400 max-w-xl">
+              Scalable solutions built with modern technologies, delivering measurable impact.
+            </p> */}
         </motion.div>
 
         {/* Compact Project Cards */}
@@ -108,7 +108,7 @@ const Projects = () => {
 
               <button
                 onClick={() => setSelectedProject(project)}
-                className="text-amber-500 text-sm hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                className={`text-amber-500 text-sm ${isDark ? "hover:text-white" : "hover:text-black"} transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded cursor-pointer hover:text-amber-500`}
               >
                 Learn More →
               </button>
@@ -131,7 +131,7 @@ const Projects = () => {
             aria-labelledby="modal-title"
           >
             <motion.div
-              className="bg-[#111] border border-white/[0.08] rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+              className={`${isDark ? "bg-[#111] border-white/[0.08]" : "bg-white border-black/[0.08]"} border rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto`}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -150,7 +150,7 @@ const Projects = () => {
                   </div>
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="text-neutral-400 hover:text-white transition-colors p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className={`p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 transition-colors ${isDark ? "text-neutral-400 hover:text-white" : "text-neutral-600 hover:text-[#0a0a0f]"}`}
                     aria-label="Close dialog"
                     autoFocus
                   >
@@ -160,7 +160,7 @@ const Projects = () => {
                   </button>
                 </div>
 
-                <p className="text-neutral-300 leading-relaxed mb-8">
+                <p className={`leading-relaxed mb-8 ${isDark ? "text-neutral-300" : "text-neutral-700"}`}>
                   {selectedProject.fullDescription}
                 </p>
 
@@ -168,9 +168,9 @@ const Projects = () => {
                   <p className="text-[11px] text-amber-500/80 uppercase tracking-wider mb-4">Impact</p>
                   <div className="grid grid-cols-3 gap-4">
                     {selectedProject.metrics.map((metric, idx) => (
-                      <div key={idx} className="text-center p-4 bg-white/[0.03] rounded-lg">
-                        <p className="text-xl font-semibold text-white mb-1">{metric.value}</p>
-                        <p className="text-neutral-500 text-xs">{metric.label}</p>
+                      <div key={idx} className={`text-center p-4 rounded-lg ${isDark ? "bg-white/[0.03]" : "bg-black/[0.03]"}`}>
+                        <p className={`text-xl font-semibold mb-1 ${isDark ? "text-white" : "text-[#0a0a0f]"}`}>{metric.value}</p>
+                        <p className={`text-xs ${isDark ? "text-neutral-500" : "text-neutral-600"}`}>{metric.label}</p>
                       </div>
                     ))}
                   </div>
@@ -182,7 +182,7 @@ const Projects = () => {
                     {selectedProject.techStack.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1.5 text-sm text-neutral-300 bg-white/[0.05] border border-white/[0.08] rounded-md"
+                        className={`px-3 py-1.5 text-sm rounded-md ${isDark ? "text-neutral-300 bg-white/[0.05] border-white/[0.08]" : "text-neutral-700 bg-black/[0.05] border-black/[0.08]"}`}
                       >
                         {tech}
                       </span>

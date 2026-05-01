@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { socialLinks } from "./utils/utils";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
-import Certifications from "./components/Certifications";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import catImg from "./assets/1000121034.jpg";
-import myImg from "./assets/1000121035.jpg"
 import "./App.css";
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -25,15 +22,6 @@ function App() {
     { id: "certifications", label: "Certifications" },
     { id: "achievements", label: "Achievements" },
     { id: "contact", label: "Contact" },
-  ];
-
-  const techStack = [
-    "Java",
-    "Spring Boot",
-    "React",
-    "TypeScript",
-    "PostgreSQL",
-    "Microservices",
   ];
 
   useEffect(() => {

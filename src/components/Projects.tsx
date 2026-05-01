@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {projects} from "../utils/utils";
+
+type ProjectType = {
+  title: string;
+  subtitle: string;
+  description: string;
+  fullDescription: string;
+  techStack: string[];
+  metrics: { label: string; value: string; }[];
+};
+
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },

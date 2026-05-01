@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { experiences } from "../utils/utils";
 
+type ExperienceType = {
+  role: string;
+  company: string;
+  period: string;
+  type: string;
+  oneLiner: string;
+  tech: string[];
+  highlights: string[];
+};
+
 const Experience = () => {
-  const [selectedExp, setSelectedExp] = useState(null);
+  const [selectedExp, setSelectedExp] = useState<ExperienceType | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },

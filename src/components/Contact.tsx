@@ -1,33 +1,7 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { socialLinks, contactLinks } from "../utils/utils";
+import { contactLinks } from "../utils/utils";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-      
-      // Clear status after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <section

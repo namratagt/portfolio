@@ -1,0 +1,130 @@
+/* App-level custom styles — all utility styling is handled by Tailwind */
+
+/* ─────────────────────────────────────────
+   LIGHT MODE OVERRIDES
+   ───────────────────────────────────────── */
+
+/* Sections & main background */
+[data-theme="light"] section,
+[data-theme="light"] aside {
+  background-color: #f5f4f0 !important;
+}
+
+[data-theme="light"] .bg-\[\#0a0a0f\] {
+  background-color: #f5f4f0 !important;
+}
+
+/* Typography */
+[data-theme="light"] .text-white {
+  color: #0a0a0f !important;
+}
+
+[data-theme="light"] .text-neutral-300 {
+  color: #374151 !important;
+}
+
+[data-theme="light"] .text-neutral-400 {
+  color: #6b7280 !important;
+}
+
+[data-theme="light"] .text-neutral-500 {
+  color: #9ca3af !important;
+}
+
+[data-theme="light"] .text-neutral-600 {
+  color: #d1d5db !important;
+}
+
+/* Amber stays amber */
+[data-theme="light"] .text-amber-500 {
+  color: #b45309 !important;
+}
+[data-theme="light"] .text-amber-500\/80 {
+  color: rgba(180, 83, 9, 0.8) !important;
+}
+
+/* Emerald dot stays */
+[data-theme="light"] .bg-emerald-400 {
+  background-color: #34d399 !important;
+}
+
+/* Card / surface backgrounds */
+[data-theme="light"] .bg-white\/\[0\.02\] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+[data-theme="light"] .bg-white\/\[0\.03\] {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+[data-theme="light"] .bg-white\/\[0\.04\] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+[data-theme="light"] .bg-white\/\[0\.05\] {
+  background-color: rgba(0, 0, 0, 0.07) !important;
+}
+[data-theme="light"] .bg-white\/\[0\.08\] {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .bg-white\/\[0\.12\] {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Hover backgrounds */
+[data-theme="light"] .hover\:bg-white\/\[0\.08\]:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .hover\:bg-white\/\[0\.12\]:hover {
+  background-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Borders */
+[data-theme="light"] .border-white\/\[0\.04\] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .border-white\/\[0\.05\] {
+  border-color: rgba(0, 0, 0, 0.10) !important;
+}
+[data-theme="light"] .border-white\/\[0\.06\] {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+[data-theme="light"] .border-white\/\[0\.08\] {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+[data-theme="light"] .border-white\/\[0\.1\] {
+  border-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+/* Amber borders */
+[data-theme="light"] .border-amber-500\/30 {
+  border-color: rgba(180, 83, 9, 0.35) !important;
+}
+[data-theme="light"] .hover\:border-amber-500\/30:hover {
+  border-color: rgba(180, 83, 9, 0.35) !important;
+}
+
+/* Amber fill backgrounds */
+[data-theme="light"] .bg-amber-500\/10 {
+  background-color: rgba(180, 83, 9, 0.08) !important;
+}
+[data-theme="light"] .hover\:bg-amber-500\/10:hover {
+  background-color: rgba(180, 83, 9, 0.08) !important;
+}
+
+/* Shadows */
+[data-theme="light"] .shadow-black\/40 {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Scroll-to-top button */
+[data-theme="light"] .bg-white\/\[0\.05\] {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Nav items */
+[data-theme="light"] .text-neutral-400.hover\:text-white:hover {
+  color: #0a0a0f !important;
+}
+
+/* Theme toggle button border */
+[data-theme="light"] .border-white\/\[0\.08\] {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}

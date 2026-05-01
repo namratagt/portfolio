@@ -403,7 +403,7 @@ function App() {
               <Skills isDark={isDark} />
               <Projects isDark={isDark} />
               {/* <Certifications /> */}
-              <Achievements isDark={isDark} />
+              <Achievements />
               <Contact isDark={isDark} />
             </div>
           </div>
